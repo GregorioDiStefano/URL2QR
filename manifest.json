@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+
+  "name": "Convert a URL to a QR Code",
+  "description": "This extension takes the current tab's URL, and creates a QR code. Useful for opening a URL you found on your desktop with your mobile phone.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js" : ["qrcode.min.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
